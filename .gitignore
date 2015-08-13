@@ -27,6 +27,9 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
+#Database File - keep empty for first time use
+rules.txt
+
 # =========================
 # Operating System Files
 # =========================
