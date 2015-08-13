@@ -1,0 +1,37 @@
+html
+  head
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    style
+      include style.css
+  body
+    h1 Easy proxy
+    h2 Rules admin panel
+    div.content
+      each rule, index in rules
+        div.rule
+          p
+            .info!= "<strong>Host</strong> : "+rule.host
+            .info!= "<strong>Path</strong> : "+rule.path
+            .info!= "<strong>Target</strong> : "+rule.target
+            .info!= "<strong>Clean Path</strong> : "+rule.removePath
+            .info!= "<strong>Mono</strong> : "+rule.mono
+            a(href="/proxy/admin/#{index}/delete").delete DELETE
+      form(name="add-estimation", method="post").add
+        .info
+            span.label Host :
+            input(type="text", name="host")
+        .info
+            span.label Path :
+            input(type="text", name="path")
+        .info
+            span.label Target :
+            input(type="text", name="target")
+        .info
+            input(type="checkbox", name="removePath")
+            span Clean Path
+        .info
+            input(type="checkbox", name="mono")
+            span Mono redirect
+        .info
+            input(type="submit", value="add")
