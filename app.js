@@ -91,7 +91,7 @@ app.all('/*', function (req, res) {
 
     if (host == e.host){ // Check if required host match one rule
 
-      if ( url.indexOf(e.path)>-1 ) { // Check if the path fits the rule or if we require the root
+      if ( url.substring(0,e.path.length)==e.path ) { // Check if the path fits the rule or if we require the root
 
         var newPath = url;
 
