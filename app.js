@@ -86,11 +86,12 @@ app.all('/*', function (req, res) {
   host = req.header('host'); // Get the host from the request
   url = req.originalUrl; // Get the path from the request
 
-  for(i = 0 ; i<rules.length(); i++) { // For every rule
+  for(i = 0 ; i<rules.length; i++) { // For every rule - better than forEAch cause it allows break
+    e=rules[i];
 
     if (host == e.host){ // Check if required host match one rule
 
-      if ( (url == "/" && e.path == "/") || (url.indexOf(e.path) > -1 && e.path!="/")) { // Check if the path fits the rule or if we require the root
+      if ( url.indexOf(e.path)>-1 ) { // Check if the path fits the rule or if we require the root
 
         var newPath = url;
 
@@ -110,9 +111,13 @@ app.all('/*', function (req, res) {
 
         console.log('redirect to ', 'http://'+e.target+newPath)
 
+        break;
+
       }
 
     }
+
+    console.log('nothing found');
 
   };
 
