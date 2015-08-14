@@ -91,7 +91,7 @@ app.all('/*', function (req, res) {
 
     if (host == e.host){ // Check if required host match one rule
 
-      if ( url.substring(0,e.path.length)==e.path ) { // Check if the path fits the rule or if we require the root
+      if ( url.substring(0,e.path.length)==e.path ) { // Check if the path fits the rule
 
         var newPath = url;
 
@@ -99,6 +99,7 @@ app.all('/*', function (req, res) {
         if(e.removePath==true && url!="/") {
 
           newPath = url.replace(e.path,'');
+          req.url=req.url.replace(e.path,'');
           console.log('rewriting Path');
 
         }
@@ -107,7 +108,8 @@ app.all('/*', function (req, res) {
         if(e.mono==true) newPath = '';
 
         // Do the redirection
-        proxy.web(req, res, { target: 'http://' + e.target + newPath, ignorePath:true});
+        proxy.web(req, res, { target: 'http://' + e.target});
+
 
         console.log('redirect to ', 'http://'+e.target+newPath)
 
