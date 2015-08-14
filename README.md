@@ -14,6 +14,8 @@ The same goes for path. *mywebsite.com/* will go to the apache server on port 30
 
 All the admin is done in */proxy/admin*. There you will have the list of your routes, delete and add.
 
-Also, the rules have a "Clean Path" option : if true, then the piece of path used to identify the redirection (*/node* for example) can be erased from the path of the redirect url. So *mysite.com/node/image/test.jpg* could route to *mysite.com:8000/image/test.jpg*
+Also, the rules have a "**Clean Path**" option : if true, then the piece of path used to identify the redirection (*/node* for example) can be erased from the path of the redirect url. So *mysite.com/node/image/test.jpg* could route to *mysite.com:8000/image/test.jpg*
+
+Finally, the "**mono**" option erase all path so that the target option alone is always used, whithout anything after it.
 
 A first github project from Loup Topalian.
