@@ -11,3 +11,7 @@ Basically there is two ways to organize redirections : by requested host and by 
 The same goes for path. "mywebsite.com/" will go to the apache server on port 3000 but "mywebsite.com/node/" could go to the node server on port 8000.
 
 All the admin is done in /proxy/admin. There you will have the list of your routes, delete and add.
+
+Also, the rules have a "Clean Path" option : if true, then the piece of path used to identify the redirection (/node for example) can be erased from the path of the redirect url. So http://mysite.com/node/image/test.jpg could route to http://mysite.com:8000/image/test.jpg
+
+A first github project from Loup Topalian.
