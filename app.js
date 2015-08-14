@@ -1,7 +1,7 @@
 // Load modules
 
 var express = require('express');
-var = httpProxy = require('http-proxy');
+var httpProxy = require('http-proxy');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
@@ -86,7 +86,7 @@ app.all('/*', function (req, res) {
   host = req.header('host'); // Get the host from the request
   url = req.originalUrl; // Get the path from the request
 
-  rules.forEach(function(e, i, a){ // For every rule
+  for(i = 0 ; i<rules.length(); i++) { // For every rule
 
     if (host == e.host){ // Check if required host match one rule
 
@@ -114,7 +114,7 @@ app.all('/*', function (req, res) {
 
     }
 
-  });
+  };
 
 
   console.log("url :", url,"/ host : ", req.header('host'));
